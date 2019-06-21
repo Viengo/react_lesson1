@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import Article from './Article'
-import accordion from '../decorators/accordion';
+import accordion from '../../../decorators/accordion';
 
 class ArticleList extends Component {
     render() {
@@ -22,7 +22,6 @@ class ArticleList extends Component {
                     toggleOpen={toggleItemOpen}
                 />
             )
-
         )
     }
 }

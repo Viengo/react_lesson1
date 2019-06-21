@@ -1,0 +1,29 @@
+.menu {
+  padding: 15px;
+  background-color: #2d2d00;
+  color: #fff;
+}
+.menu_title {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.nav {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  &>.nav_item {
+    margin: 0 0 0 15px;
+    padding: 0;
+  }
+  .nav_link {
+    display: block;
+    font-size: 18px;
+    text-decoration: none;
+    color: #fff;
+    &.active,&:hover {
+      text-decoration: underline;
+    }
+  }
+}

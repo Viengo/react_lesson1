@@ -1,38 +1,37 @@
 import React, {Component} from 'react';
-import Select from 'react-select';
-import ArticleList from './components/ArticleList';
-import UserForm from './components/UserForm';
-import Range from './components/Range';
+import {BrowserRouter, Route,Switch} from 'react-router-dom';
+import Menu from './components/menu/Menu';
+import Lesson from "./components/lessons/lesson_1/Lesson";
 import 'react-day-picker/lib/style.css';
-import articles from './fixtures';
+import './App.scss'
 
 class App extends Component {
-    constructor(...args){
-        super(...args);
 
-        this.state={
-            openItem:null
-        }
-    }
     render() {
         return (
-            <div className="App">
-                <UserForm/>
-                <Select options={this.options} value={this.state.openItem} onChange={this.handleSelect}/>
-                <ArticleList articles={articles}/>
-                <Range/>
-            </div>
+            <BrowserRouter>
+                <div className="App">
+                    <Menu/>
+                    <div className="content">
+                        <Switch>
+                            <Route path="/lesson_1" component={Lesson}/>
+                        </Switch>
+                    </div>
+                </div>
+            </BrowserRouter>
         )
     }
 
-    get options() {
-        return articles.map(article => ({
-            label: article.title,
-            value: article.id
-        }))
-    }
-
-    handleSelect = openItem => this.setState({openItem});
+    // get lessons() {
+    //     return LessonsNav.map((lesson, index) => (
+    //             <Route
+    //                 key={lesson.id}
+    //                 path={`/lesson_${index}`}
+    //                 render={(props) => <Lesson {...props} isAuthed={true} articles={articles} nav={LessonsNav}/>}
+    //             />
+    //         )
+    //     )
+    // }
 }
 
 export default App;
